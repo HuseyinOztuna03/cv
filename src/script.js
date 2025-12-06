@@ -17,7 +17,7 @@ function reveal() {
 
 window.addEventListener("scroll", reveal);
 
-const texts = [' Game Developer', ' UI & UX Developer'];
+const texts = [' Game Developer'];
 var count = 0;
 var index = 0;
 var decrement = 0;
