@@ -190,14 +190,12 @@
                                 </h3>
                             </div>
                         </div>
-
-
                     </div>
 
                     <div class="home-p link-anim-fade">
 
                         <p>
-                            -
+                            
                         </p>
 
                     </div>
@@ -209,8 +207,8 @@
         <div class="code-table-nav">
             <div class="tab-container">
                 <div class="tab tab-active"><span style="color: yellow; "><i
-                            class="fa-brands fa-js"></i></span>playerController.js</div>
-                <div class="tab"><span style="color: skyblue; ">#</span> shaders-free.css</div>
+                            class="fa-brands fa-js"></i></span>PlayerController.cs</div>
+                <div class="tab"><span style="color: skyblue; ">#</span>GameManager.cs</div>
                 <div class="tab"><span style="color: orangered; ">
                         <>
                     </span> level.html</div>
@@ -218,83 +216,87 @@
         </div>
         <div class="code-table-code-container">
             <div class="code-table-sidenav">
-                <div class="numb link-anim-set p1">120</div>
-                <div class="numb link-anim-set p2">121</div>
-                <div class="numb link-anim-set p3">122</div>
-                <div class="numb link-anim-set p4">123</div>
+                <div class="numb link-anim-set p1">123</div>
+                <div class="numb link-anim-set p2">124</div>
+                <div class="numb link-anim-set p3">125</div>
+                <div class="numb link-anim-set p4">126</div>
                 <div class="numb link-anim-set p5">12H</div>
                 <div class="numb link-anim-set p6">12S</div>
                 <div class="numb link-anim-set p7">12Y</div>
-                <div class="numb link-anim-set p8">130</div>
+                <div class="numb link-anim-set p8">13N</div>
                 <div class="numb link-anim-set p9">131</div>
                 <div class="numb link-anim-set p10">132</div>
                 <div class="numb link-anim-set p11">133</div>
                 <div class="numb link-anim-set p12">134</div>
             </div>
-            <div class="code-table-code">
+                <div class="code-table-code">
                 <div class="code-table-border">
 
                     <div class="time-out-code">
-                        <span style="color: #ce8ce9;">const</span> <span
-                            style="color: #a1c5f5;">inputMap</span> <span style="color: skyblue;"> =
-                        </span> </span><span style="color: #f3b059;"> playerInputs</span>;
+                    <span style="color:#ce8ce9;">private</span> <span style="color:#ce8ce9;">readonly</span>
+                    <span style="color:#a1c5f5;">Dictionary&lt;int, PlayerInput&gt;</span>
+                    <span style="color:skyblue;"> </span><span style="color:#a1c5f5;">inputMap</span>
+                    <span style="color:skyblue;"> = </span><span style="color:#f3b059;">playerInputs</span>;
                     </div>
-                    <div class="time-out-code">
-                        <span style="color: #ce8ce9;">var</span> <span
-                            style="color: #a1c5f5;">frameCounter</span> <span style="color: skyblue;"> =
-                        </span> <span style="color: #d34848;"> 0</span>;
-                    </div>
-                    <!-- settimeout -->
-                    <div class="settime-out-mar">
-                        <div class="time-out-code">
-                            <span style="color: #a1c5f5;">setTimeout(</span><span
-                                style="color: #eec985;">()</span> <span
-                                style="color: #ce8ce9;">=></span> <span style="color:#eec985;">{</span>
-                        </div>
-                        <div class="time-out-function-code">
-                            <span style="color: #eec985;">gameHUD</span>.<span
-                                style="color: #d34848;">innerHTML</span> <span
-                                style="color: #a1c5f5;">=</span> <span
-                                style="color:#eec985;">missionStatus</span>;
-                        </div>
-                        <div class="time-out-function-code">
-                            <span style="color: #eec985;">enemyAI</span>.<span
-                                style="color: #d34848;">state</span> <span
-                                style="color: #a1c5f5;">=</span> <span
-                                style="color:#eec985;">aggressive</span>;
-                        </div>
-                        <div class="time-out-function-code">
-                            <span style="color: #eec985;">physicsEngine</span>.<span
-                                style="color: #d34848;">gravity</span> <span
-                                style="color: #a1c5f5;">=</span> <span
-                                style="color:#eec985;">tunedSettings</span>;
-                        </div>
-                        <div class="time-out-code">
-                            <span style="color: #eec985;">}</span>, <span
-                                style="color: #eec985;">7000</span> <span
-                                style="color: #a1c5f5;">)</span>;
-                        </div>
-                    </div>
-                    <!-- settimeout -->
 
                     <div class="time-out-code">
-                        <span style="color: #ce8ce9;">const</span> <span
-                            style="color: #a1c5f5;">resetComboSystem</span> <span
-                            style="color: skyblue;"> = </span> </span><span style="color: #f3b059;">
-                            comboManager</span>;
+                    <span style="color:#ce8ce9;">private</span>
+                    <span style="color:#a1c5f5;">int</span> <span style="color:#a1c5f5;">frameCounter</span>
+                    <span style="color:skyblue;"> = </span><span style="color:#d34848;">0</span>;
                     </div>
+
+                    <!-- Invoke -->
+                    <div class="settime-out-mar">
                     <div class="time-out-code">
-                        <span style="color: #ce8ce9;">const</span> <span
-                            style="color: #a1c5f5;">cameraShakeEffect</span> <span style="color: skyblue;">
-                            = </span> <span style="color: #f3b059;"> impulse</span>;
+                        <span style="color:#a1c5f5;">Invoke(</span><span style="color:#eec985;">nameof</span><span style="color:#a1c5f5;">(</span><span style="color:#eec985;">ApplyMissionState</span><span style="color:#a1c5f5;">)</span><span style="color:#a1c5f5;">,</span>
+                        <span style="color:#eec985;">7f</span><span style="color:#a1c5f5;">)</span><span style="color:#a1c5f5;">;</span>
                     </div>
+
+                    <div class="time-out-function-code">
+                        <span style="color:#ce8ce9;">void</span> <span style="color:#eec985;">ApplyMissionState</span><span style="color:#a1c5f5;">()</span>
+                        <span style="color:#eec985;">{</span>
+                    </div>
+
+                    <div class="time-out-function-code">
+                        <span style="color:#eec985;">hud</span><span style="color:#a1c5f5;">.</span><span style="color:#d34848;">SetStatus</span><span style="color:#a1c5f5;">(</span><span style="color:#eec985;">missionStatus</span><span style="color:#a1c5f5;">)</span><span style="color:#a1c5f5;">;</span>
+                    </div>
+
+                    <div class="time-out-function-code">
+                        <span style="color:#eec985;">enemyAI</span><span style="color:#a1c5f5;">.</span><span style="color:#d34848;">SetState</span><span style="color:#a1c5f5;">(</span><span style="color:#eec985;">AIState</span><span style="color:#a1c5f5;">.</span><span style="color:#eec985;">Aggressive</span><span style="color:#a1c5f5;">)</span><span style="color:#a1c5f5;">;</span>
+                    </div>
+
+                    <div class="time-out-function-code">
+                        <span style="color:#eec985;">Physics2D</span><span style="color:#a1c5f5;">.</span><span style="color:#d34848;">gravity</span>
+                        <span style="color:skyblue;"> = </span><span style="color:#eec985;">tunedGravity</span><span style="color:#a1c5f5;">;</span>
+                    </div>
+
+                    <div class="time-out-function-code">
+                        <span style="color:#eec985;">}</span>
+                    </div>
+                    </div>
+                    <!-- Invoke -->
+
                     <div class="time-out-code">
-                        <span style="color: #ce8ce9;">var</span> <span
-                            style="color: #a1c5f5;">pauseOnFocusLost</span> <span style="color: skyblue;"> =
-                        </span> <span style="color: #80d348;"> true</span>;
+                    <span style="color:#ce8ce9;">private</span>
+                    <span style="color:#a1c5f5;">Action</span> <span style="color:skyblue;"> </span><span style="color:#a1c5f5;">resetComboSystem</span>
+                    <span style="color:skyblue;"> = </span><span style="color:#f3b059;">comboManager</span><span style="color:#a1c5f5;">.</span><span style="color:#d34848;">Reset</span><span style="color:#a1c5f5;">;</span>
                     </div>
+
+                    <div class="time-out-code">
+                    <span style="color:#ce8ce9;">private</span>
+                    <span style="color:#a1c5f5;">void</span> <span style="color:skyblue;"> </span><span style="color:#a1c5f5;">CameraShake</span><span style="color:#a1c5f5;">()</span>
+                    <span style="color:skyblue;"> =&gt; </span><span style="color:#f3b059;">impulse</span><span style="color:#a1c5f5;">.</span><span style="color:#d34848;">GenerateImpulse</span><span style="color:#a1c5f5;">();</span>
+                    </div>
+
+                    <div class="time-out-code">
+                    <span style="color:#ce8ce9;">private</span>
+                    <span style="color:#a1c5f5;">bool</span> <span style="color:skyblue;"> </span><span style="color:#a1c5f5;">pauseOnFocusLost</span>
+                    <span style="color:skyblue;"> = </span><span style="color:#80d348;">true</span><span style="color:#a1c5f5;">;</span>
+                    </div>
+
                 </div>
-            </div>
+                </div>
+
         </div>
     </div>
     <!-- code right 01 page -->
@@ -321,7 +323,7 @@
                                     <div class="skill-bar-dot"></div>
                                     <div class="skill-bar-dot"></div>
                                 </div>
-                                <div class="skill-bar-dot-head">Level Design & Balancing</div>
+                                <div class="skill-bar-dot-head">Level & Game Design</div>
                                 <div class="skill-bar-co htmls">
 
                                     <div class="skill-bar-dot"></div>
@@ -344,16 +346,13 @@
                             </div>
 
                             <div class="skill-bar">
-                                <div class="skill-bar-dot"></div>Shaders (Basics)
+                                <div class="skill-bar-dot"></div>Shader basics (URP / built-in)
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-bar-dot"></div>Post-Processing
+                                <div class="skill-bar-dot"></div>Post-processing & particle effects
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-bar-dot"></div>Lighting & Materials
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-bar-dot"></div>UI/HUD Systems
+                                <div class="skill-bar-dot"></div>UI / HUD visual systems
                             </div>
                         </div>
                     </div>
@@ -367,16 +366,13 @@
                             </div>
 
                             <div class="skill-bar">
-                                <div class="skill-bar-dot"></div>Unity (C#) / Unreal (Blueprint)
+                                <div class="skill-bar-dot"></div>Unity (C#) — Production-level systems
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-bar-dot"></div>AI (State Machines / Behavior Trees)
+                                <div class="skill-bar-dot"></div>Turn-based & real-time game logic
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-bar-dot"></div>Physics & Collisions
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-bar-dot"></div>Optimization (FPS / Memory)
+                                <div class="skill-bar-dot"></div>Performance optimization (FPS / memory)
                             </div>
                         </div>
                     </div>
